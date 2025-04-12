@@ -42,7 +42,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-200">
+    <div className="flex flex-col h-screen bg-gray-200">
     <Navbar/>
     <section class="flex-1 flex items-center bg-gray-100 dark:bg-gray-800 pb-4">
         
@@ -88,7 +88,7 @@ const LoginPage = () => {
                   Login
                   </button>
                   <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                      Do not have an account? <a href="/login" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Register here</a>
+                      Do not have an account? <a href="/register" class="font-medium text-blue-600 hover:underline ">Register here</a>
                   </p>
               </form>
               

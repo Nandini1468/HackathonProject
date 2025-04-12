@@ -17,7 +17,7 @@ const HomePage = ({ isLoggedIn }) => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative pt-5 text-center flex flex-col items-center justify-center py-20 px-4 bg-blue-500 dark:bg-gray-800">
+      <section className="relative pt-5 pb-3 text-center flex flex-col items-center justify-center py-20 px-4 bg-blue-500 dark:bg-gray-800">
         <div className="absolute inset-0 bg-opacity-40 backdrop-blur-md"></div>
         <h2 className="text-5xl font-extrabold mb-4 text-white z-10 drop-shadow-[0_0_10px_rgba(0,0,0,0.5)]">
           Your Personalized Learning Roadmap
@@ -25,13 +25,13 @@ const HomePage = ({ isLoggedIn }) => {
         <p className="text-xl mb-8 max-w-2xl text-white z-10">
           Whether you're just starting out or want to switch careers — we’ll guide you step by step.
         </p>
-        <button 
-        onClick={handleClick}
-          // {isLoggedIn ? navigate('/input-form') : navigate('/register')}
-          className="z-10 bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-cyan-500/70 transition duration-300"
-        >{isLoggedIn ? "Continue Learning" : "Start Learning"}
-          
-        </button>
+        <button
+      onClick={handleClick}
+      className="text-white bg-blue-700 font-medium rounded-lg text-sm px-4 py-2 text-center 
+                 transition duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-800"
+    >
+      {isLoggedIn ? "Continue Learning" : "Start Learning"}
+      </button>
       </section>
 
       {/* Features Section */}

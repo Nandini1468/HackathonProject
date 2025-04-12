@@ -67,6 +67,7 @@ const InputForm = () => {
             <select
               value={goal}
               onChange={(e) => setGoal(e.target.value)}
+              required
               className="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-600"
             >
               <option value="" hidden>Select a goal</option>
@@ -83,6 +84,7 @@ const InputForm = () => {
             <select
               value={level}
               onChange={(e) => setLevel(e.target.value)}
+              required
               className="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-600"
             >
               <option value="" hidden>Select Your Level</option>

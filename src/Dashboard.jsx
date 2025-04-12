@@ -9,7 +9,7 @@ const Dashboard = () => {
     const fetchProgress = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:8080/api/v1/roadmap", {
+        const response = await axios.get("http://localhost:3000/api/v1/roadmap", {
           headers: {
             Authorization: token,
           },
