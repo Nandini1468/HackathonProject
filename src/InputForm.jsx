@@ -9,7 +9,7 @@ const InputForm = () => {
   const [goal, setGoal] = useState("");
   const [level, setLevel] = useState("");
   const [availableTime, setAvailableTime] = useState("");
-  const [learningStyle, setLearningStyle] = useState("");
+  const [duration, setDuration]=useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -20,20 +20,20 @@ const InputForm = () => {
       level,
       skills,
       availableTime,
-      learningStyle,
+      duration
     };
   
     try {
       const token = localStorage.getItem("token"); // Make sure your token is stored in localStorage after login
     
-      await axios.post("http://localhost:8080/api/v1/roadmap/generate", formData, {
+      await axios.post("http://localhost:3000/api/v1/roadmap/generate", formData, {
         headers: {
-          Authorization: token,
-          "Content-Type": "application/json",
+          "authorization": token
+          
         },
       });
   
-      navigate("/dashboard");
+      navigate("/active");
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -143,25 +143,18 @@ const InputForm = () => {
             />
           </div>
 
-          {/* Preferred Learning Style */}
+          {/* Available Months for the user */}
           <div>
-            <label className="block mb-3 text-sm text-gray-900 dark:text-white font-semibold">Preferred Learning Style</label>
-            <div className="flex gap-6 text-gray-900 dark:text-white">
-              {["Video", "Text", "Both"].map((style) => (
-                <label key={style} className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="learningStyle"
-                    value={style}
-                    checked={learningStyle === style}
-                    onChange={(e) => setLearningStyle(e.target.value)}
-                    className="text-gray-900 dark:text-white"
-                  />
-                  <span>{style}</span>
-                </label>
-              ))}
-            </div>
+            <label className="block mb-2 text-sm text-gray-900 dark:text-white font-semibold">Duration (in months)</label>
+            <input
+              type="number"
+              value={duration}
+              onChange={(e) => setDuration(e.target.value)}
+              className="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-600"
+              placeholder="No.of months you can dedicate"
+            />
           </div>
+
 
           {/* Submit */}
           <div className="text-center">

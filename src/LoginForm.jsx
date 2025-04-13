@@ -22,7 +22,7 @@ const LoginPage = () => {
 
     try {
       // Make backend API call to register user
-      const res = await fetch("http://localhost:8080/api/v1/signin", {
+      const res = await fetch("http://localhost:3000/api/v1/signin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -32,6 +32,8 @@ const LoginPage = () => {
 
       if (res.ok) {
         // After successful registration, redirect to Home
+        const token= await res.json();
+        localStorage.setItem("token", token.token);
         navigate("/");
       } else {
         console.error("Registration failed");
@@ -80,6 +82,7 @@ const LoginPage = () => {
                   
                   <button
                     type="button"
+                    onClick={handleSubmit}
                     className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 
                       focus:outline-none focus:ring-blue-300 font-medium rounded-lg 
                       text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 

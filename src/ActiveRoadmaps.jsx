@@ -13,7 +13,7 @@ const MyRoadmaps = () => {
         const token = localStorage.getItem("token");
         const res = await axios.get("http://localhost:3000/api/v1/roadmaps", {
           headers: {
-            Authorization: token,
+            "authorization": token,
           },
         });
         setRoadmaps(res.data);
@@ -32,13 +32,13 @@ const MyRoadmaps = () => {
   return (
     <div>
       <Navbar />
-      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 p-6 text-white">
+      <div className="h-screen bg-gray-100 dark:bg-gray-800 p-6 dark:text-white text-gray-900">
         <h1 className="text-3xl font-bold mb-6 text-center">My Roadmaps</h1>
         <div className="grid md:grid-cols-3 gap-6">
           {roadmaps.map((roadmap) => (
             <div
               key={roadmap.id}
-              className="cursor-pointer bg-gray-800 hover:bg-gray-700 rounded-xl p-6 shadow-md transition"
+              className="cursor-pointer bg-white dark:bg-gray-800 pl-3 mr-3"
               onClick={() => goToDashboard(roadmap.id)}
             >
               <h2 className="text-xl font-semibold mb-2">{roadmap.goal}</h2>

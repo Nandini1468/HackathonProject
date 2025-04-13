@@ -8,6 +8,7 @@ import LoginForm from "./LoginForm"
 import MyRoadmaps from "./ActiveRoadmaps";
 import About from "./About";
 import Contact from "./Contact";
+import AdminPage from "./AdminPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -24,11 +25,12 @@ function App() {
         <Route path="/" element={<HomePage isLoggedIn={!!user} />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/input-form" element={<InputForm/>}/>
-        <Route path="dashboard" element={<Dashboard/>}/>
+        <Route path="/roadmap/:roadmapId" element={<Dashboard/>}/>
         <Route path="/signin" element={<LoginForm/>}/>
         <Route path="/active" element={<MyRoadmaps/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<Contact/>}/>
+        <Route path="/admin" element={<AdminPage/>}/>
       </Routes>
     </Router>
   );
